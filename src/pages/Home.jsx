@@ -5,6 +5,8 @@ import Banner from "../components/banner/Banner";
 import Category from "../components/category/Category";
 
 export default function Home() {
+  
+
   return (
     <>
       <div className="patternBackground py-20">

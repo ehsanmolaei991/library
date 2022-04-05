@@ -17,12 +17,17 @@ const supportBtn = [
 ];
 
 export default function Contact() {
+  
+
   return (
     <div className="container mx-auto p-5 py-10 md:py-24">
       <HeaderTitle title="ارتباط با ما" />
       <div className="grid grid-cols-12 gap-3 my-8 lg:my-10">
-        {supportBtn?.map((item) => (
-          <div className="col-span-12 lg:col-span-4 w-full flex justify-center">
+        {supportBtn?.map((item, index) => (
+          <div
+            key={`btn-${index}`}
+            className="col-span-12 lg:col-span-4 w-full flex justify-center"
+          >
             <div className="border-2 shadow-lg group hover:bg-light-green bg-white flex w-full max-w-md p-10 rounded-lg justify-between items-center border-light-green cursor-pointer">
               <div>
                 <h3 className="darkest-gray VazirBold group-hover:white transition-all">
@@ -32,21 +37,21 @@ export default function Contact() {
                   {item.subtitle}
                 </small>
               </div>
-              <i class="fa-regular fa-square-arrow-left light-green text-4xl group-hover:white transition-all group-hover:-translate-x-2"></i>
+              <i className="fa-regular fa-square-arrow-left light-green text-4xl group-hover:white transition-all group-hover:-translate-x-2"></i>
             </div>
           </div>
         ))}
       </div>
       <HeaderTitle title="راه های ارتباطی" />
       <p className="flex items-center leading-7 my-5 text-sm md:text-md">
-        <i class="fa-regular fa-location-dot text-xl green ml-3"></i>
+        <i className="fa-regular fa-location-dot text-xl green ml-3"></i>
         <span>
           تهران، خیابان کارگر جنوبی، بالاتر از خیابان جمهوری، پلاک ۱۲۱۳ واحد ۱،
           کد پستی ۱۳۱۴۹۳۳۱۶۳
         </span>
       </p>
       <p className="flex items-center leading-7 my-5 text-sm md:text-md">
-        <i class="fa-regular fa-envelope text-xl green ml-3"></i>
+        <i className="fa-regular fa-envelope text-xl green ml-3"></i>
         <span>
           جهت ارسال پیشنهادات و انتقادات و یا امور دیگر از طریق ایمیل
           <a className="dark-green px-2" href="mailto:info@ketabrah.ir">
@@ -59,7 +64,7 @@ export default function Contact() {
         </span>
       </p>
       <p className="flex items-center leading-7 my-5 text-sm md:text-md">
-      <i class="fa-regular fa-clock text-xl green ml-3"></i>
+        <i className="fa-regular fa-clock text-xl green ml-3"></i>
         <span>ساعات اداری (شنبه تا چهارشنبه ۸:۳۰ الی ۱۶:۳۰)</span>
       </p>
     </div>

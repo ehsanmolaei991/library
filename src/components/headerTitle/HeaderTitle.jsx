@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function HeaderTitle({ title, more = false }) {
   return (
@@ -7,9 +8,11 @@ export default function HeaderTitle({ title, more = false }) {
         {title}
       </h1>
       {more && (
-        <small className="VazirLight text-md md:text-lg cursor-pointer hover:dark-purple">
-          مشاهده همه <i class="fa-regular fa-square-arrow-up-left mr-1"></i>
-        </small>
+        <Link to={`/list?category=${title}`}>
+          <small className="VazirLight text-md md:text-lg cursor-pointer hover:dark-purple">
+            مشاهده همه <i className="fa-regular fa-square-arrow-up-left mr-1"></i>
+          </small>
+        </Link>
       )}
     </div>
   );

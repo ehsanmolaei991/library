@@ -4,6 +4,7 @@ import Logo from "../shared/icons/Logo";
 import Button from "../shared/button/Button";
 export default function Navbar() {
   let navigate = useNavigate();
+
   return (
     <div className="container mx-auto p-2 flex items-center justify-between relative">
       <div className="flex items-center">
@@ -12,16 +13,16 @@ export default function Navbar() {
         </Link>
         <nav className="navSmallScreenView hidden md:block w-full border-r-2 border-darkest-gray pr-3">
           <ul className="flex items-center">
-            <li className="ml-3 darkest-gray hover:light-green VazirBold">
+            <li className="ml-3 dark-purple hover:light-green VazirBold">
               <Link to="/">خانه</Link>
             </li>
-            <li className="ml-3 darkest-gray hover:light-green VazirBold">
-              <Link to="/library">کتابخانه</Link>
+            <li className="ml-3 dark-purple hover:light-green VazirBold">
+              <Link to="/list">کتابخانه</Link>
             </li>
-            <li className="ml-3 darkest-gray hover:light-green VazirBold">
+            <li className="ml-3 dark-purple hover:light-green VazirBold">
               <Link to="/contact">ارتباط با ما</Link>
             </li>
-            <li className="ml-3 darkest-gray hover:light-green VazirBold">
+            <li className="ml-3 dark-purple hover:light-green VazirBold">
               <Link to="/about">درباره ما</Link>
             </li>
           </ul>
@@ -29,11 +30,13 @@ export default function Navbar() {
       </div>
       <ul className="flex">
         <li className="mr-1">
-          <Button
-            iconRight="fa-regular fa-user"
-            textClassName="text-xs"
-            title="حساب کاربری"
-          />
+          <Link to="/auth">
+            <Button
+              iconRight="fa-regular fa-user"
+              textClassName="text-xs"
+              title="حساب کاربری"
+            />
+          </Link>
         </li>
         <li className="mr-1 hidden md:block">
           <Link to="/search">

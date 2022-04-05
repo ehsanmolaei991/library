@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function About() {
+  
   return (
     <div className="container mx-auto p-5 py-10 md:py-24">
       <h1 className="VazirBold text-xl md:text-3xl dark-purple mb-2">

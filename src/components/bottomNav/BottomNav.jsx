@@ -7,27 +7,27 @@ export default function BottomNav() {
       <ul className="flex items-center justify-between w-full max-w-md px-10">
         <li className="ml-3 hover:light-green VazirBold">
           <Link to="/">
-            <i class="text-lg fa-regular fa-house"></i>
+            <i className="text-lg fa-regular fa-house"></i>
           </Link>
         </li>
         <li className="ml-3 hover:light-green VazirBold">
-          <Link to="/library">
-            <i class="text-lg fa-regular fa-books"></i>
+          <Link to="/list">
+            <i className="text-lg fa-regular fa-books"></i>
           </Link>
         </li>
         <li className="ml-3 hover:light-green VazirBold">
           <Link to="/search">
-            <i class="text-lg fa-regular fa-magnifying-glass"></i>
+            <i className="text-lg fa-regular fa-magnifying-glass"></i>
           </Link>
         </li>
         <li className="ml-3 hover:light-green VazirBold">
           <Link to="/contact">
-            <i class="text-lg fa-regular fa-headset"></i>
+            <i className="text-lg fa-regular fa-headset"></i>
           </Link>
         </li>
         <li className="ml-3 hover:light-green VazirBold">
           <Link to="/about">
-            <i class="text-lg fa-regular fa-circle-question"></i>
+            <i className="text-lg fa-regular fa-circle-question"></i>
           </Link>
         </li>
       </ul>

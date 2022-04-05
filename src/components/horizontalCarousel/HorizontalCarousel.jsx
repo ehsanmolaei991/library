@@ -6,7 +6,7 @@ import HeaderTitle from "../headerTitle/HeaderTitle";
 
 export default function HorizontalCarousel({ title }) {
   return (
-    <div className="bg-white p-5 rounded-lg border-2 border-lightest-gray">
+    <div className="bg-white p-5 rounded-lg border-2 shadow-md">
       <HeaderTitle title={title} more />
       <Swiper
         spaceBetween={15}
@@ -18,11 +18,11 @@ export default function HorizontalCarousel({ title }) {
           dynamicBullets: true,
         }}
         modules={[FreeMode, Pagination, Navigation]}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
+        // onSlideChange={() => console.log("slide change")}
+        // onSwiper={(swiper) => console.log(swiper)}
       >
-        {[...new Array(10)].map(() => (
-          <SwiperSlide>
+        {[...new Array(10)].map((item, index) => (
+          <SwiperSlide key={`swiper-${index}`}>
             <BookItem />
           </SwiperSlide>
         ))}

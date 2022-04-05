@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
-import Button from "../components/shared/button/Button";
+import React, { useState } from "react";
 import Input from "../components/shared/input/Input";
 
 export default function Search({}) {
   const [search, setSearch] = useState("");
 
   return (
-    <div className="container mx-auto py-10">
-      <div className="min-w-[70%] shadow">
+    <div className="container mx-auto py-10 px-1">
+      <div className="min-w-[70%]">
         <Input
           onChange={(value) => setSearch(value)}
           placeholder="جستجوی کتاب، نویسنده، ناشر ..."
           iconRight="fa-regular fa-magnifying-glass"
+          containerClassName="border-gray-300/50"
         />
       </div>
       {/* <div className="grid grid-cols-12 gap-x-2 gap-y-5 w-full">

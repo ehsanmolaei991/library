@@ -4,16 +4,15 @@ import Button from "../shared/button/Button";
 export default function Banner() {
   return (
     <>
-      <a
-        href="#"
-        class="medium-banner rounded-lg shadow-md"
+      <div
+        className="medium-banner rounded-lg shadow-md"
         style={{
           backgroundColor: "#293168",
           backgroundImage:
             "url(https://www.ketabrah.ir/img/content-blocks/s/i9288833954.jpg)",
         }}
       >
-        <h3 class="white text-right">
+        <h3 className="white text-right">
           عطاری گمشده؛
           <br />
           از پرفروش‌ترین کتاب‌های
@@ -26,7 +25,7 @@ export default function Banner() {
           textClassName="text-xs green group-hover:dark-green"
           title="دریافت کتاب"
         />
-      </a>
+      </div>
     </>
   );
 }

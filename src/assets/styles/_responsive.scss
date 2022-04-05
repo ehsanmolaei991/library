@@ -2,6 +2,13 @@
 @media screen and (max-width: 768px) {
   .swiper-button-next,
   .swiper-button-prev {
-      display: none;
+    display: none;
+  }
+  * {
+    scrollbar-width: none;
+  }
+
+  *::-webkit-scrollbar {
+    height: 0;
   }
 }
