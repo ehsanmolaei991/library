@@ -27,7 +27,10 @@ export default function TopicsList({
         {topics &&
           topics.map((item, i) => (
             <li
-              onClick={() => renditionRef.current.display(item.href)}
+              onClick={() => {
+                renditionRef.current.display(item.href);
+                onClose();
+              }}
               key={i}
               className="p-2 hover:green cursor-pointer mt-3 text-sm"
             >

@@ -1,7 +1,7 @@
 import React from "react";
 // Style
 import "./assets/styles/all.min.css";
-
+import 'animate.css';
 // swiper
 import "swiper/css";
 import "swiper/css/free-mode";

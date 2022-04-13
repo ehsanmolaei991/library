@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { ReactReader, ReactReaderStyle } from "react-reader";
 import Ebook from "../assets/epub/blyton-secret-of-moon-castle.epub";
+import HighlightColorSelection from "../components/highlightColorSelection/HighlightColorSelection";
 import HighlightList from "../components/highlightList/HighlightList";
 import NavReading from "../components/navReadingBook/NavReading";
 import TopicsList from "../components/topicsList/topicsList";
@@ -23,6 +24,8 @@ export default function Reading() {
   const [isHighlightListOpen, setIsHighlightListOpen] = useState(false);
   const [isTopicsListOpen, setIsTopicsListOpen] = useState(false);
   const [selectionRange, setSelectionRange] = useState(false);
+  const [isColorSelectionShow, setIsColorSelectionShow] = useState(false);
+  const [colorSecltion, setColorSelection] = useState(false);
   const [location, setLocation] = useState(loc);
   const [page, setPage] = useState("");
   //
@@ -43,9 +46,11 @@ export default function Reading() {
     setSelections(
       selections.concat({
         text: renditionRef.current.getRange(cfiRange).toString(),
+        color,
         cfiRange,
       })
     );
+    console.log(selections);
     renditionRef.current.annotations.highlight(
       cfiRange,
       {},
@@ -59,29 +64,21 @@ export default function Reading() {
   }
 
   const handleSelection = (range, contents) => {
-    setSelectionRange(range);
-    let color = prompt("Please enter your color", "yellow");
-    if (color != null) {
-      setRenderSelection(range, contents, color);
-    }
+    setIsColorSelectionShow(false);
+    setSelectionRange({ range, contents });
+    var iframe = document.querySelector("iframe");
+    iframe.contentDocument.addEventListener("mouseup", (e) => {
+      setIsColorSelectionShow(true);
+    });
   };
 
   useEffect(() => {
-    let list = document.querySelectorAll(".epub-highlight");
-    list.forEach((node) => {
-      node.addEventListener("click", function (e) {
-        console.log(e.target);
-      });
-    });
-
-    setTimeout(() => {
-      document
-        .querySelector("iframe")
-        .setAttribute(
-          "sandbox",
-          "allow-same-origin allow-scripts allow-popups allow-forms"
-        );
-    }, 3000);
+    // let list = document.querySelectorAll(".epub-highlight");
+    // list.forEach((node) => {
+    //   node.addEventListener("click", function (e) {
+    //     console.log(e.target);
+    //   });
+    // });
 
     if (renditionRef.current) {
       // renditionRef.current.on("selected", setRenderSelection);
@@ -111,11 +108,11 @@ export default function Reading() {
           styles={ownStyles}
           getRendition={(rendition) => {
             renditionRef.current = rendition;
-            renditionRef.current.themes.default({
-              "::selection": {
-                background: "red",
-              },
-            });
+            // renditionRef.current.themes.default({
+            //   "::selection": {
+            //     background: "red",
+            //   },
+            // });
             setSelections([]);
           }}
           tocChanged={(toc) => (tocRef.current = toc)}
@@ -123,6 +120,13 @@ export default function Reading() {
         <div className="absolute bottom-0 green left-0 bg-white text-center w-full z-10 py-2">
           {page}
         </div>
+        {isColorSelectionShow && (
+          <HighlightColorSelection
+            selectionRange={selectionRange}
+            setIsColorSelectionShow={setIsColorSelectionShow}
+            setRenderSelection={setRenderSelection}
+          />
+        )}
       </div>
 
       {/* Topic List */}

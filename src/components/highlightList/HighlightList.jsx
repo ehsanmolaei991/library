@@ -25,14 +25,16 @@ export default function HighlightList({
         ></i>
       </div>
       <hr className="my-3" />
-      <ul>
-        {selections.map(({ text, cfiRange }, i) => (
+      <ul className="h-[95%] overflow-auto px-2">
+        {selections.map(({ text, cfiRange, color = "yellow" }, i) => (
           <li
             onClick={() => {
               renditionRef.current.display(cfiRange);
+              onClose();
             }}
             key={i}
-            className="bg-green p-2 rounded-md white mt-3 text-sm"
+            style={{ backgroundColor: color }}
+            className={`p-2 rounded-md white mt-3 text-sm`}
           >
             {text}{" "}
             {/* <button
