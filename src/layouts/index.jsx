@@ -18,7 +18,7 @@ export default function Layout({ children }) {
     setisHeaderShow(true);
     setisBottomNavShow(true);
     // if is route in reading page
-    if (location?.pathname.search("reading")) {
+    if (location?.pathname.search("reading") !== -1) {
       setisFooterShow(false);
       setisHeaderShow(false);
       setisBottomNavShow(false);
